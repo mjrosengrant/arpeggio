@@ -2,6 +2,7 @@ import argparse
 import json
 import logging
 import os
+import pybel
 
 from arpeggio.core import InteractionComplex
 from arpeggio.core.utils import max_mem_usage
@@ -73,6 +74,9 @@ def _setup_logging(args):
 def main():
     """Run Arpeggio algorithm
     """
+    # Only log critical OpenBabel errors.
+    pybel.ob.obErrorLog.SetOutputLevel(0)
+
     parser = create_parser()
     args = parser.parse_args()
     _setup_logging(args)
