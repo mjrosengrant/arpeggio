@@ -496,11 +496,7 @@ def selection_parser(selection_list, atom_list):
 
             # ATOM NAME
             if selection[2]:
-
-                if not selection[2].isalnum() and "'" not in selection[2]:
-                    raise SelectionError(original_selection)
-                else:
-                    atom_name = selection[2]
+                atom_name = selection[2]
 
             # NOW MAKE THE SELECTION WITH BIOPYTHON
             if chain:
